@@ -1,0 +1,13 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Главная страница";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Выберите задание</h1>
+    <div class="btn-group" role="group">
+        <a asp-controller="LoanCalculator" asp-action="Calculation" class="btn btn-primary">Основное задание</a>
+        <a asp-controller="AdditionalCalculation" asp-action="DayCalculation" class="btn btn-success">Дополнительное задание</a>
+    </div>
+</div>

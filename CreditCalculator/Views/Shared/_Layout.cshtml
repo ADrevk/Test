@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="icon" href="~/pic.ico" type="image/x-icon" sizes="32x32">
+    <title>@ViewData["Title"]</title>
+ 
+</head>
+<body>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Вернуться на главную</a>
+
+    @RenderBody()
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <style>
+        /* Скрыть спиннер */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+</body>
+</html>

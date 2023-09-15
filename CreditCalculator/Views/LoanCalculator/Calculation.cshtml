@@ -1,0 +1,33 @@
+﻿@model LoanCalculationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Основное задание";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Кредитный калькулятор</h2>
+            <form method="post" asp-controller="LoanCalculator" asp-action="Calculate">
+                <div class="form-group">
+                    <label for="LoanAmount">Сумма займа</label>
+                    <input type="number" class="form-control" id="LoanAmount" name="LoanAmount" value="@Model.LoanAmount" required>
+                    <span asp-validation-for="LoanAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="LoanTermMonths">Срок займа (в месяцах)</label>
+                    <input type="number" class="form-control" id="LoanTermMonths" name="LoanTermMonths" value="@Model.LoanTermMonths" required>
+                    <span asp-validation-for="LoanTermMonths" class="text-danger"></span>
+                </div> 
+                <div class="form-group">
+    <label for="InterestRate">Ставка (в год)</label>
+    <input type="text" class="form-control" id="InterestRate" name="InterestRate" value="@Model.InterestRate" required>
+    <span asp-validation-for="InterestRate" class="text-danger"></span>
+</div>
+
+                <button type="submit" class="btn btn-primary">Рассчитать</button>
+            </form>
+        </div>
+    </div>
+</div>

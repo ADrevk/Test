@@ -1,0 +1,48 @@
+﻿@model CalculationResultsModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Основное задание";
+}
+
+<div class="container">
+    <h2>Результаты расчета</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>График платежей</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Номер платежа</th>
+                        <th>Дата платежа</th>
+                        <th>Размер платежа по телу</th>
+                        <th>Размер платежа по %</th>
+                        <th>Остаток основного долга</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var payment in Model.Payments)
+                    {
+                        <tr>
+                            <td>@payment.PaymentNumber</td>
+                            <td>@payment.PaymentDate.ToString("dd/MM/yyyy")</td>
+                            <td>@payment.PrincipalPayment.ToString("N2")</td>
+                            <td>@payment.InterestPayment.ToString("N2")</td>
+                            <td>@payment.RemainingBalance.ToString("N2")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h3>Итоговая переплата по кредиту</h3>
+            <p>Итоговая переплата: @Model.TotalInterestPaid.ToString("N2")</p>
+
+            <div>
+                <a asp-controller="LoanCalculator" asp-action="Calculation" class="btn btn-primary">Сделать новый рассчет</a>
+                <a asp-controller="AdditionalCalculation" asp-action="DayCalculation" class="btn btn-success">Перейти к дополнительному заданию</a>
+            </div>
+        </div>
+    </div>
+</div>

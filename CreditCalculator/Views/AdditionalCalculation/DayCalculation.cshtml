@@ -1,0 +1,38 @@
+﻿@model AdditionalCalculationModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Дополнительный калькулятор";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Дополнительный калькулятор</h2>
+            <form method="post" asp-controller="AdditionalCalculation" asp-action="Calculate">
+                <div class="form-group">
+                    <label for="LoanAmount">Сумма займа</label>
+                    <input type="number" class="form-control" id="LoanAmount" name="LoanAmount" value="@Model.LoanAmount" required>
+                    <span asp-validation-for="LoanAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="LoanTermDays">Срок займа (в днях)</label>
+                    <input type="number" class="form-control" id="LoanTermDays" name="LoanTermDays" value="@Model.LoanTermDays" required>
+                    <span asp-validation-for="LoanTermDays" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="InterestRatePerDay">Ставка (в день)</label>
+                    <input type="text" class="form-control" id="InterestRatePerDay" name="InterestRatePerDay" value="@Model.InterestRatePerDay" required>
+                    <span asp-validation-for="InterestRatePerDay" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="PaymentIntervalDays">Шаг платежа (в днях)</label>
+                    <input type="number" class="form-control" id="PaymentIntervalDays" name="PaymentIntervalDays" value="@Model.PaymentIntervalDays" required>
+                    <span asp-validation-for="PaymentIntervalDays" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Рассчитать</button>
+            </form>
+        </div>
+    </div>
+</div>
